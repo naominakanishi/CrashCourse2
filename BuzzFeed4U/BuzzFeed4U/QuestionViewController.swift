@@ -6,11 +6,13 @@ class QuestionViewController: UIViewController {
     let categoryImageView = UIImageView()
     let categoryTitle = UILabel()
     let optionsStackView = UIStackView()
-    let question: Question
+   // let question: Question
+    var selectedOption: Int?
     let questionTitle = UILabel()
+    let nextButton = UIButton()
+
     
-    init (categoryImage: UIImage, categoryTitle: String, question: Question) {
-        self.question = question
+    init (categoryImage: UIImage, categoryTitle: String) {
         super.init(nibName: nil, bundle: nil)
         categoryImageView.image = categoryImage
         self.categoryTitle.text = categoryTitle
@@ -52,7 +54,7 @@ class QuestionViewController: UIViewController {
     func setupQuestionTitle(){
         questionTitle.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(questionTitle)
-        questionTitle.text = question.questionTitle
+        questionTitle.text = QuizManager.shared.getCurrentQuestion().questionTitle
         questionTitle.font = UIFont.boldSystemFont(ofSize: 30)
         questionTitle.textColor = .black
         questionTitle.numberOfLines = 0
@@ -79,7 +81,7 @@ class QuestionViewController: UIViewController {
         let vMargin: CGFloat = 20
         button.setTitle(option.option, for: .normal)
         button.backgroundColor = UIColor(named: "purpleButtonColor")
-        button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSelectedOption), for: .touchUpInside)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.setTitleColor(.black, for: .normal)
         optionsStackView.addArrangedSubview(button)
@@ -94,21 +96,21 @@ class QuestionViewController: UIViewController {
     }
     
     func createOptionsButtons(){
-        for (i, option) in question.options.enumerated(){
+        for (i, option) in
+            QuizManager.shared.getCurrentQuestion().options.enumerated(){
             createButton(id: i, option: option)
         }
     }
     
     func createNextButton(){
-        let nextButton = UIButton()
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nextButton)
         nextButton.setTitle("Continuar", for: .normal)
+        nextButton.alpha = 0.2
         nextButton.backgroundColor = UIColor(named: "nextButtonColor")
         nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         nextButton.setTitleColor(.white, for: .normal)
         nextButton.titleLabel?.textAlignment = .center
-
         nextButton.titleLabel?.leadingAnchor.constraint(equalTo: nextButton.leadingAnchor, constant: 20).isActive = true
         nextButton.titleLabel?.centerYAnchor.constraint(equalTo: nextButton.centerYAnchor).isActive = true
         nextButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -116,14 +118,54 @@ class QuestionViewController: UIViewController {
         nextButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
         nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
         nextButton.layer.cornerRadius = 20
-
+        nextButton.addTarget(self, action: #selector(handleNextButtonTap), for: .touchUpInside)
     }
     
-    @objc func handleTap(){}
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
+    @objc func handleNextButtonTap() {
+        guard let selectedOption = self.selectedOption
+        else { return }
+        QuizManager.shared.handleOptionSelected(at: selectedOption)
+        if QuizManager.shared.isQuizDone() {
+            // TODO navegar para tela de resultado
+            return
+        }
+        self.selectedOption = nil
+        renderScreen()
     }
+    
+    @objc func handleSelectedOption(_ button: UIButton) {
+        selectedOption = button.tag
+        renderScreen()
+    }
+    
+    func renderScreen() {
+        
+        optionsStackView.subviews.forEach { $0.removeFromSuperview() }
+        createOptionsButtons()
+        
+        questionTitle.text = QuizManager.shared.getCurrentQuestion().questionTitle
+        
+        optionsStackView.subviews
+            .compactMap { $0 as? UIButton }
+            .enumerated()
+            .forEach { i, button in
+                if i == selectedOption {
+                    button.backgroundColor = UIColor(named: "nextButtonColor")
+                } else {
+                    button.backgroundColor = UIColor(named: "purpleButtonColor")
+                }
+        }
+        
+        if selectedOption != nil {
+            nextButton.alpha = 1
+        } else {
+            nextButton.alpha = 0.2
+        }
+    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        navigationController?.setNavigationBarHidden(false, animated: true)
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,6 +178,7 @@ class QuestionViewController: UIViewController {
         createOptionsButtons()
         setupOptionsStackView()
         createNextButton()
+        renderScreen()
         // Do any additional setup after loading the view.
 
     }

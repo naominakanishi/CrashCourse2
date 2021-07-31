@@ -11,6 +11,7 @@ class CategoryButton: UIView {
     
     let categoryImageView = UIImageView()
     let categoryTitle = UILabel()
+    let category: Category
     let tapAction: (CategoryButton) -> Void
     
     func setupCategoryImageView(){
@@ -43,14 +44,17 @@ class CategoryButton: UIView {
         tapAction(self)
     }
     
-    init(tapAction: @escaping (CategoryButton) -> Void){
+    init(category: Category, tapAction: @escaping (CategoryButton) -> Void){
+        self.category = category
         self.tapAction = tapAction
         super.init(frame: .zero)
         self.layer.cornerRadius = 20
         self.backgroundColor = UIColor(named: "purpleButtonColor")
+    
         setupCategoryImageView()
         setupCategoryTitle()
         setupNextGesture()
+        
     }
     
     required init?(coder: NSCoder) {

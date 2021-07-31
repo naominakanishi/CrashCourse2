@@ -9,6 +9,7 @@ class CategoriesViewController: UIViewController {
     let categoryButtonContainer = UIView()
     let buttonMargin: CGFloat = 15
     lazy var tapAction: (CategoryButton) -> Void = { button in
+        QuizManager.shared.selectedStaringCategory = button.category
         guard let image = button.categoryImageView.image,
               let title = button.categoryTitle.text
         else { return }
@@ -71,7 +72,7 @@ class CategoriesViewController: UIViewController {
     
     func setupExistentialCrisisButton() {
         //let margin: CGFloat = 15
-        let existentialCrisisButton = CategoryButton (tapAction: tapAction)
+        let existentialCrisisButton = CategoryButton (category: .existentialCrisis, tapAction: tapAction)
         existentialCrisisButton.configure(imageName: "crazy", categoryTitle: "crise existencial")
         existentialCrisisButton.translatesAutoresizingMaskIntoConstraints = false
         categoryButtonContainer.addSubview(existentialCrisisButton)
@@ -83,7 +84,7 @@ class CategoriesViewController: UIViewController {
     }
     
     func setupFoodieButton(){
-        let foodieButton = CategoryButton (tapAction: tapAction)
+        let foodieButton = CategoryButton (category: .foodie, tapAction: tapAction)
         foodieButton.configure(imageName: "foodie", categoryTitle: "gosto de comidas")
         foodieButton.translatesAutoresizingMaskIntoConstraints = false
         categoryButtonContainer.addSubview(foodieButton)
@@ -95,7 +96,7 @@ class CategoriesViewController: UIViewController {
     }
     
     func setupLoveButton() {
-        let loveButton = CategoryButton (tapAction: tapAction)
+        let loveButton = CategoryButton (category: .love, tapAction: tapAction)
         loveButton.configure(imageName: "love", categoryTitle: "help ca vida amorosa")
         loveButton.translatesAutoresizingMaskIntoConstraints = false
         categoryButtonContainer.addSubview(loveButton)
@@ -108,7 +109,7 @@ class CategoriesViewController: UIViewController {
     }
     
     func setupBoredButton() {
-        let boredButton = CategoryButton (tapAction: tapAction)
+        let boredButton = CategoryButton (category: .bored, tapAction: tapAction)
         boredButton.configure(imageName: "bored", categoryTitle: "zzz tedio")
         boredButton.translatesAutoresizingMaskIntoConstraints = false
         categoryButtonContainer.addSubview(boredButton)
@@ -124,8 +125,7 @@ class CategoriesViewController: UIViewController {
     func presentQuizScreen(categoryImage: UIImage, categoryTitle: String){
         let questionViewController = QuestionViewController(
             categoryImage: categoryImage,
-            categoryTitle: categoryTitle,
-            question: 
+            categoryTitle: categoryTitle
             )
         navigationController?.pushViewController(questionViewController, animated: true)
     }

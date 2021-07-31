@@ -1,6 +1,7 @@
 struct Question {
     let questionTitle: String
     let options: [Option]
+    let character: Character
 }
 
 struct Option {
@@ -13,15 +14,22 @@ struct Result {
     let category: Category
 }
 
+
+
 enum Category {
     case existentialCrisis
     case foodie
     case love
     case bored
+    case none
 }
 
 enum Character: Int {
-    case mulan, ariel, snowWhite
+    case mulan
+    case snowWhite
+    case ariel
+    case eeyeore
+    case none
 }
 
 // Category Map:
