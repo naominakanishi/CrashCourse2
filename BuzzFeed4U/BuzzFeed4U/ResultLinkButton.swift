@@ -30,9 +30,7 @@ class ResultLinkButton: UIView {
         resultTitle.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8).isActive = true
     }
     
-    func setupResultSubtitle(){
-        
-    }
+
     
     /*
     // Only override draw() if you perform custom drawing.

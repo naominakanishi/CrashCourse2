@@ -9,7 +9,7 @@ class CategoriesViewController: UIViewController {
     let categoryButtonContainer = UIView()
     let buttonMargin: CGFloat = 15
     lazy var tapAction: (CategoryButton) -> Void = { button in
-        QuizManager.shared.selectedStaringCategory = button.category
+        QuizManager.shared.selectedStartingCategory = button.category
         guard let image = button.categoryImageView.image,
               let title = button.categoryTitle.text
         else { return }

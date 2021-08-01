@@ -1,8 +1,45 @@
-//
-//  ResultRepository.swift
-//  BuzzFeed4U
-//
-//  Created by Naomi Nakanishi on 01/08/21.
-//
-
-import Foundation
+extension QuizManager.Repository {
+    static let results: [Result] = [
+//        Result(buzzfeedUrl: "https://buzzfeed.com.br/quiz/que-tipo-de-subcelebridade-voce-seria",
+//               category: .existentialCrisis,
+//               imageName: "subcelebrity",
+//               title: "Que tipo de subcelebridade você seria?",
+//               subtitle: "Independente do resultado, o que importa é aparecer."),
+//        Result(buzzfeedUrl: "https://buzzfeed.com.br/quiz/teste-monte-refeicao-basiquinha-diremos-jurado-masterchef",
+//               category: .foodie,
+//               imageName: "masterchef",
+//               title: "Monte um almoço e diremos qual jurado do Masterchef você é",
+//               subtitle: "Vai uma saladinha?")
+    //    Result(buzzfeedUrl: <#T##String#>,
+    //           category: <#T##Category#>,
+    //           imageName: <#T##String#>,
+    //           title: <#T##String#>,
+    //           subtitle: <#T##String#>),
+    //    Result(buzzfeedUrl: <#T##String#>,
+    //           category: <#T##Category#>,
+    //           imageName: <#T##String#>,
+    //           title: <#T##String#>,
+    //           subtitle: <#T##String#>),
+    //    Result(buzzfeedUrl: <#T##String#>,
+    //           category: <#T##Category#>,
+    //           imageName: <#T##String#>,
+    //           title: <#T##String#>,
+    //           subtitle: <#T##String#>),
+    //    Result(buzzfeedUrl: <#T##String#>,
+    //           category: <#T##Category#>,
+    //           imageName: <#T##String#>,
+    //           title: <#T##String#>,
+    //           subtitle: <#T##String#>),
+    //    Result(buzzfeedUrl: <#T##String#>,
+    //           category: <#T##Category#>,
+    //           imageName: <#T##String#>,
+    //           title: <#T##String#>,
+    //           subtitle: <#T##String#>),
+    //    Result(buzzfeedUrl: <#T##String#>,
+    //           category: <#T##Category#>,
+    //           imageName: <#T##String#>,
+    //           title: <#T##String#>,
+    //           subtitle: <#T##String#>),
+            
+        ]
+}

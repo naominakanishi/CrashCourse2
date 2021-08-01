@@ -7,14 +7,16 @@ struct Question {
 struct Option {
     let option: String
     let category: Category
+    let result: Result?
 }
 
 struct Result {
     let buzzfeedUrl: String
     let category: Category
+    let imageName: String
+    let title: String
+    let subtitle: String
 }
-
-
 
 enum Category {
     case existentialCrisis

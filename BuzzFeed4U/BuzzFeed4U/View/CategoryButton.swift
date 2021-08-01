@@ -30,6 +30,7 @@ class CategoryButton: UIView {
         categoryTitle.topAnchor.constraint(equalTo: categoryImageView.bottomAnchor, constant: 10).isActive = true
         categoryTitle.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         categoryTitle.textAlignment = .center
+        categoryTitle.numberOfLines = 0
  
     }
     

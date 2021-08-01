@@ -126,7 +126,8 @@ class QuestionViewController: UIViewController {
         else { return }
         QuizManager.shared.handleOptionSelected(at: selectedOption)
         if QuizManager.shared.isQuizDone() {
-            // TODO navegar para tela de resultado
+            let resultsViewController = ResultsViewController(categoryImage: categoryImageView.image)
+            navigationController?.pushViewController(resultsViewController, animated: true)
             return
         }
         self.selectedOption = nil

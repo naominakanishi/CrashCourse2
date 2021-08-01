@@ -1,12 +1,18 @@
 import UIKit
 
-class ResultsViewController: UIViewController {
+final class ResultsViewController: UIViewController {
+    
+    // MARK: - UI Components
 
     let bottomBlobsImageView = UIImageView()
     let categoryImageView = UIImageView()
     let resultLabel = UILabel()
+    let resultsStackView = UIStackView()
+    let homeButton = UIButton()
     
-    init (categoryImage: UIImage) {
+    // MARK: - Initialization
+    
+    init (categoryImage: UIImage?) {
         super.init(nibName: nil, bundle: nil)
         categoryImageView.image = categoryImage
     }
@@ -14,6 +20,8 @@ class ResultsViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Setup methods
     
     func setupBottomBlobs(){
         bottomBlobsImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,11 +54,63 @@ class ResultsViewController: UIViewController {
         resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
     }
     
-    func resultView() {
-        let title = UILabel()
-       // let quizButton
+    func setupResultsStackView() {
+        resultsStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(resultsStackView)
+        
+        resultsStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        resultsStackView.topAnchor.constraint(equalTo: categoryImageView.bottomAnchor, constant: 20).isActive = true
+        resultsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        resultsStackView.bottomAnchor.constraint(lessThanOrEqualTo: homeButton.topAnchor, constant: -20).isActive = true
+        
+        
+        resultsStackView.axis = .vertical
+        resultsStackView.distribution = .equalCentering
+        resultsStackView.spacing = 20
+    }
+    
+    func setupHomeButton() {
+        homeButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(homeButton)
+        
+        homeButton.layer.cornerRadius = 20
+        homeButton.addTarget(self, action: #selector(handleHomeButtonTap), for: .touchUpInside)
+        homeButton.setTitle("Recomeçar", for: .normal)
+        homeButton.backgroundColor = UIColor(named: "nextButtonColor")
+        
+        homeButton.setTitleColor(.white, for: .normal)
+        homeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        homeButton.titleLabel?.textAlignment = .center
+        homeButton.titleLabel?.leadingAnchor.constraint(equalTo: homeButton.leadingAnchor, constant: 20).isActive = true
+        homeButton.titleLabel?.centerYAnchor.constraint(equalTo: homeButton.centerYAnchor).isActive = true
+        
+        homeButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        homeButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        homeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
         
     }
+    
+    func displayResultView() {
+        for (i, result) in QuizManager.shared.getResults().enumerated() {
+            let title = i == 0 ?
+                result.category.headline() :
+                "E, de brinde, vai aqui mais um para você matar seu tempo:"
+            
+            let view = ResultQuizView(
+                buzzfeedUrl: result.buzzfeedUrl,
+                resultTitle: title,
+                quizImageName: result.imageName,
+                quizTitle: result.title,
+                quizSubtitle: result.subtitle)
+            
+            resultsStackView.addArrangedSubview(view)
+        }
+        
+    }
+    
+    // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,19 +119,16 @@ class ResultsViewController: UIViewController {
         setupBottomBlobs()
         displayHeaderImage()
         displayheaderTitle()
-
-        // Do any additional setup after loading the view.
+        setupHomeButton()
+        setupResultsStackView()
+        displayResultView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Callbacks
+    
+    @objc
+    func handleHomeButtonTap() {
+        let startController = CategoriesViewController()
+        navigationController?.pushViewController(startController, animated: true)
     }
-    */
-
 }
