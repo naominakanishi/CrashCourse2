@@ -47,6 +47,8 @@ class ResultsViewController: UIViewController {
     }
     
     func resultView() {
+        let title = UILabel()
+       // let quizButton
         
     }
     
