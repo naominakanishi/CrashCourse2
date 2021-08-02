@@ -17,7 +17,6 @@
 		1158D1BB26B0C01D004A8DA6 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158D1BA26B0C01D004A8DA6 /* CategoriesViewController.swift */; };
 		1158D1BF26B0E18F004A8DA6 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1158D1BE26B0E18F004A8DA6 /* CategoryButton.swift */; };
 		1177D05C26B71B020099C8FB /* QuestionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177D05B26B71B020099C8FB /* QuestionRepository.swift */; };
-		1177D05E26B71B5A0099C8FB /* ResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177D05D26B71B5A0099C8FB /* ResultRepository.swift */; };
 		11DB09BF26B1AA1E006A4937 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB09BE26B1AA1E006A4937 /* QuestionViewController.swift */; };
 		11DB09C326B220AE006A4937 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB09C226B220AE006A4937 /* Model.swift */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		1158D1BA26B0C01D004A8DA6 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		1158D1BE26B0E18F004A8DA6 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		1177D05B26B71B020099C8FB /* QuestionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRepository.swift; sourceTree = "<group>"; };
-		1177D05D26B71B5A0099C8FB /* ResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRepository.swift; sourceTree = "<group>"; };
 		11DB09BE26B1AA1E006A4937 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		11DB09C226B220AE006A4937 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +94,6 @@
 			children = (
 				1111F0FE26B5BCCA00EA548F /* QuizManager.swift */,
 				1177D05B26B71B020099C8FB /* QuestionRepository.swift */,
-				1177D05D26B71B5A0099C8FB /* ResultRepository.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -206,7 +203,6 @@
 				1158D1BF26B0E18F004A8DA6 /* CategoryButton.swift in Sources */,
 				1177D05C26B71B020099C8FB /* QuestionRepository.swift in Sources */,
 				1158D1BB26B0C01D004A8DA6 /* CategoriesViewController.swift in Sources */,
-				1177D05E26B71B5A0099C8FB /* ResultRepository.swift in Sources */,
 				1111F0FB26B4812100EA548F /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
