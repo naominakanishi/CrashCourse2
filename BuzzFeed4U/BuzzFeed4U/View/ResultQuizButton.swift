@@ -68,7 +68,7 @@ final class ResultQuizButton: UIView {
         static let wMultiplier: CGFloat = 0.9
         enum QuizImageView {
             static let aspectRatio: CGFloat = 1/3
-            static let topMargin: CGFloat = 20
+            static let topMargin: CGFloat = 10
         }
         enum QuizTitle {
             static let topMargin: CGFloat = 15
@@ -115,7 +115,7 @@ final class ResultQuizButton: UIView {
         self.quizTitle.text = quizTitle
         self.quizSubtitle.text = quizSubtitle
         
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 15
         self.backgroundColor = UIColor(named: "purpleButtonColor")
         
         setupQuizImageView()

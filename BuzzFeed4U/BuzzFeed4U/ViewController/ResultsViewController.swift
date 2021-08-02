@@ -38,19 +38,19 @@ final class ResultsViewController: UIViewController {
         view.addSubview(categoryImageView)
         categoryImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
         categoryImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        categoryImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25).isActive = true
+        categoryImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.18).isActive = true
         categoryImageView.heightAnchor.constraint(equalTo: categoryImageView.widthAnchor).isActive = true
     }
     
     func displayheaderTitle(){
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(resultLabel)
-        resultLabel.text = "Resultado"
-        resultLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        resultLabel.text = "toma aqui seu quiz <3"
+        resultLabel.font = UIFont.boldSystemFont(ofSize: 25)
         resultLabel.textColor = UIColor(named: "violetColor")
         resultLabel.numberOfLines = 0
         resultLabel.centerYAnchor.constraint(equalTo: categoryImageView.centerYAnchor).isActive = true
-        resultLabel.leadingAnchor.constraint(equalTo: categoryImageView.trailingAnchor, constant: 30).isActive = true
+        resultLabel.leadingAnchor.constraint(equalTo: categoryImageView.trailingAnchor, constant: 10).isActive = true
         resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
     }
     

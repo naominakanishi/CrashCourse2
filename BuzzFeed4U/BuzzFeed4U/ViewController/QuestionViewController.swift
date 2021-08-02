@@ -36,19 +36,20 @@ class QuestionViewController: UIViewController {
         view.addSubview(categoryImageView)
         categoryImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
         categoryImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        categoryImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25).isActive = true
+        categoryImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.18).isActive = true
         categoryImageView.heightAnchor.constraint(equalTo: categoryImageView.widthAnchor).isActive = true
     }
     
     func displayheaderTitle(){
         categoryTitle.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(categoryTitle)
-        categoryTitle.font = UIFont.boldSystemFont(ofSize: 30)
+        categoryTitle.font = UIFont.boldSystemFont(ofSize: 25)
         categoryTitle.textColor = UIColor(named: "violetColor")
         categoryTitle.numberOfLines = 0
         categoryTitle.centerYAnchor.constraint(equalTo: categoryImageView.centerYAnchor).isActive = true
-        categoryTitle.leadingAnchor.constraint(equalTo: categoryImageView.trailingAnchor, constant: 30).isActive = true
+        categoryTitle.leadingAnchor.constraint(equalTo: categoryImageView.trailingAnchor, constant: 10).isActive = true
         categoryTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+//        categoryTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     func setupQuestionTitle(){
@@ -56,18 +57,18 @@ class QuestionViewController: UIViewController {
         view.addSubview(questionTitle)
         questionTitle.text = QuizManager.shared.getCurrentQuestion().questionTitle
         questionTitle.font = UIFont.boldSystemFont(ofSize: 30)
-        questionTitle.textColor = .black
+        questionTitle.textColor = UIColor(named: "darkGreyColor")
         questionTitle.numberOfLines = 0
         questionTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         questionTitle.topAnchor.constraint(equalTo: categoryTitle.bottomAnchor, constant: 50).isActive = true
-        questionTitle.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20).isActive = true
+        questionTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
     }
     
     func setupOptionsStackView(){
         optionsStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(optionsStackView)
         optionsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        optionsStackView.widthAnchor.constraint(equalTo: questionTitle.widthAnchor, constant: -20).isActive = true
+        optionsStackView.widthAnchor.constraint(equalTo: questionTitle.widthAnchor).isActive = true
         optionsStackView.topAnchor.constraint(equalTo: questionTitle.bottomAnchor, constant: 50).isActive = true
         optionsStackView.axis = .vertical
         optionsStackView.distribution = .equalCentering
@@ -83,7 +84,7 @@ class QuestionViewController: UIViewController {
         button.backgroundColor = UIColor(named: "purpleButtonColor")
         button.addTarget(self, action: #selector(handleSelectedOption), for: .touchUpInside)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIColor(named: "darkGreyColor"), for: .normal)
         optionsStackView.addArrangedSubview(button)
         button.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: vMargin).isActive = true

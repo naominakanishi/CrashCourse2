@@ -4,13 +4,13 @@ extension QuizManager.Repository {
             questionTitle: "Qual personagem Disney te representa?",
             options: [
                 Option(
-                    option: "Mulan",
+                    option: "Mulan, a que passou a perna no exército do país só cortando o cabelo",
                     category: .none,
                     result: nil
                 ),
-                Option(option: "Branca de Neve",
+                Option(option: "Branca de Neve, sem os sete anões. Aquela que quase morreu por causa de comida",
                        category: .none, result: nil),
-                Option(option: "Ariel",
+                Option(option: "Ariel, aquela que trocou a voz por ter pernas porque gamou num boy",
                        category: .none, result: nil),
                 Option(
                     option: "Burro do ursinho Pooh. Digo, o burro do desenho do ursinho Pooh. Quer dizer, o personagem Burro.",
@@ -176,7 +176,7 @@ extension QuizManager.Repository {
             options: [
                 
                 Option(
-                    option: "sou cult, consumo arte",
+                    option: "Sou cult, consumo arte",
                     category: .existentialCrisis,
                     result: Result(
                         buzzfeedUrl: "https://buzzfeed.com.br/quiz/as-coisas-para-onde-seu-olhar-e-atraido-nestas-pinturas-revela-uma-verdade-profunda-sobre-voce",
@@ -187,7 +187,7 @@ extension QuizManager.Repository {
                 )),
                 
                 Option(
-                    option: "Cozinho um miojão",
+                    option: "Faço aquele miojão pra esquecer as dores comendo",
                     category: .foodie,
                     result: Result(
                         buzzfeedUrl: "https://buzzfeed.com.br/quiz/qual-sabor-de-miojo-voce-e",
@@ -198,7 +198,7 @@ extension QuizManager.Repository {
                 )),
                 
                 Option(
-                    option: "Vejo memes na internet",
+                    option: "Procuro qualquer coisa engraçada na internet",
                     category: .love,
                     result: Result(
                         buzzfeedUrl: "https://buzzfeed.com.br/quiz/qual-meme-representa-sua-vida-amorosa-em-2021",

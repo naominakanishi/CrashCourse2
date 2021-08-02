@@ -27,6 +27,7 @@ class CategoryButton: UIView {
         categoryTitle.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(categoryTitle)
         categoryTitle.font = UIFont.boldSystemFont(ofSize: 18)
+        categoryTitle.tintColor = UIColor(named: "darkGreyColor")
         categoryTitle.topAnchor.constraint(equalTo: categoryImageView.bottomAnchor, constant: 10).isActive = true
         categoryTitle.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         categoryTitle.textAlignment = .center

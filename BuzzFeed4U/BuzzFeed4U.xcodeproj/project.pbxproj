@@ -54,8 +54,8 @@
 		1111F10326B6357A00EA548F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				11DB09BE26B1AA1E006A4937 /* QuestionViewController.swift */,
 				1158D1BA26B0C01D004A8DA6 /* CategoriesViewController.swift */,
+				11DB09BE26B1AA1E006A4937 /* QuestionViewController.swift */,
 				1111F0FA26B4812100EA548F /* ResultsViewController.swift */,
 			);
 			path = ViewController;

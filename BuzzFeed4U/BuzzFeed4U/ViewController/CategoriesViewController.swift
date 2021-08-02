@@ -47,7 +47,7 @@ class CategoriesViewController: UIViewController {
         let hMargin: CGFloat = 15
         homeTitle.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(homeTitle)
-        homeTitle.text = "No que você quer a ajuda do BuzzFeed hoje?"
+        homeTitle.text = "Com o que o Buzzfeed pode te ajudar hoje?"
         homeTitle.font = UIFont.boldSystemFont(ofSize: 32)
         homeTitle.numberOfLines = 0
         homeTitle.textColor = UIColor(named: "violetColor")
@@ -73,7 +73,7 @@ class CategoriesViewController: UIViewController {
     func setupExistentialCrisisButton() {
         //let margin: CGFloat = 15
         let existentialCrisisButton = CategoryButton (category: .existentialCrisis, tapAction: tapAction)
-        existentialCrisisButton.configure(imageName: "crazy", categoryTitle: "crise existencial")
+        existentialCrisisButton.configure(imageName: "crazy", categoryTitle: "socorro, tô em crise existencial")
         existentialCrisisButton.translatesAutoresizingMaskIntoConstraints = false
         categoryButtonContainer.addSubview(existentialCrisisButton)
         
@@ -85,7 +85,7 @@ class CategoriesViewController: UIViewController {
     
     func setupFoodieButton(){
         let foodieButton = CategoryButton (category: .foodie, tapAction: tapAction)
-        foodieButton.configure(imageName: "foodie", categoryTitle: "gosto de comidas")
+        foodieButton.configure(imageName: "foodie", categoryTitle: "só consigo pensar em comer e beber")
         foodieButton.translatesAutoresizingMaskIntoConstraints = false
         categoryButtonContainer.addSubview(foodieButton)
         
@@ -97,7 +97,7 @@ class CategoriesViewController: UIViewController {
     
     func setupLoveButton() {
         let loveButton = CategoryButton (category: .love, tapAction: tapAction)
-        loveButton.configure(imageName: "love", categoryTitle: "help ca vida amorosa")
+        loveButton.configure(imageName: "love", categoryTitle: "send help ca vida amorosa")
         loveButton.translatesAutoresizingMaskIntoConstraints = false
         categoryButtonContainer.addSubview(loveButton)
         
@@ -110,7 +110,7 @@ class CategoriesViewController: UIViewController {
     
     func setupBoredButton() {
         let boredButton = CategoryButton (category: .bored, tapAction: tapAction)
-        boredButton.configure(imageName: "bored", categoryTitle: "zzz tedio")
+        boredButton.configure(imageName: "bored", categoryTitle: "num aguento mais o tédio")
         boredButton.translatesAutoresizingMaskIntoConstraints = false
         categoryButtonContainer.addSubview(boredButton)
         
